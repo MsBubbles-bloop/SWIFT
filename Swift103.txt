@@ -1,3 +1,5 @@
+//INCOMPLETE
+
 // enumes are like astatic list of values that to hold and have as an option to choose from (likea csutome gorup of related datatypes  ) ex: days of hte week, months of the year, seasons , comuter game states 
 //if i make custome fixed values to be abel to choose form beasue it willbe reapedtd in my code tehn i make an enoum to avvoide having to rerwite it and make syntex errores thats the maoin purposue, so its like alist i can call to  get sertain valeus (list of valeus), but if i wna tot do more i can even make acions assoicated to those valeus using fucntions in the enum, better yes use a list intheh fucntion to maek setting actins for the custom valeus easeir
 
