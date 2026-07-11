@@ -1,0 +1,807 @@
+var x = 4
+
+print("1 2 3 \(x)")
+
+var s =  "bye" // initailes and assign// make sure to leave a sapce befoer and after ( = )
+
+print(" nice knwoing you, \(s) " )
+
+s = "see ya" // reaigne, can only use a value f the same type
+
+
+var y = 18
+
+ print("im  \(y) years old")
+print("Hello, Swift!", type(of: y))
+
+// use type(of: ) to see the data type of verable
+// -----------------------------------------------------------------------
+
+// fixed unchangebea dn un resignable veribales
+
+let fixed = "i cant be changed" //constentent  ثابت
+
+// naming rules:
+
+/* no numbers or symbules (including mathimaticle +, - , = , / , * , % , @, !, ^ ) in the beging of the veribel only in other then thenre is ok if not reserved (let, var, print, func, class )*/
+
+
+//var ~start = 23
+
+//var 5flow = 6
+
+var my_nme = "   "
+var start$ = 23 // so far the only symble that seems unreserved
+
+ var fl5ow = 6 // متغير
+ 
+ var تقنية = " كلام " 
+
+// call veriables,  إستدعاء المتغير
+print("veraibels ,\(fixed),  \(fl5ow), \(start$), \(تقنية)")
+
+// no progarmmign languge prevserved names can be usde as a veraible like (var or let)
+
+//var var = 4
+//var let = 7
+
+// no saoces in the verable iself:
+
+//var my name = "  "
+
+// to resigne a veraibel rewrtie withougth var
+
+fl5ow = 3
+
+print(fl5ow)
+
+// name two verables inhte same line
+
+var go = 2 , stop = 7
+ let v = 5 , s = 6
+// to save vereable to sue later wihtought mentioning hte value , just he type
+// this is type annotation:
+
+var i = Int // sepcify wta hte verbel will be
+i = 3  // then define  إسناد
+
+
+let f = Int
+
+f = 4 // foR a constent i can only define it once whne i decide to define it
+
+i = 0 /// as for a veribel i can cahnge it later regardless
+
+var n5 = 4 // intager
+
+var num = 454756.54257469569 
+var word = "stuff"
+// by default hte system  thinks any numebr wiht decimles are a double type unless flowa is specifed
+var doub = 3.325764564368347 // double, لها   كسور عشرية recaehs into 15 decimple points
+
+var change2 = String(num)
+
+print(change2)
+
+var change3 = Float(num)
+print(change3)// float can only accuratly store around up to 6~7 numbers as (whole and dicmile) so it round the rest tos tore memory and its used in big systmes.
+
+var change4 = Double(num)
+print(change4) // can whold up to 15 numbers(whole and decimle together)
+
+var change5 = Int(word)// dosnt work if the value isslef cant be translated toa notehr type
+print(change5) // returns nil or null
+
+var f1 = 1.123456 // float reachrs 6 numbers counting whole and dicimal points
+
+
+var m = -9
+// to cascasde or change one type of data to another
+
+var change = Int(doub)
+
+
+var s = "string" 
+
+var strch = "T" // since a string is a combinatin of cahracters the system miht assume this to be a stirgnor by default, to speciyu ti as a charcter for some futer logic use the methode below
+
+// to concatinate and add strings to each otehr 
+
+s = "additional " + s
+
+var sss = """
+msut start the words in a new line, below the علامات التنصيص
+multilevel string, can used to write long paragraphes or sentances
+
+"can have a 1 quite in here"
+
+""or a 2 quote ""
+
+\(doub) this is string interpulation
+
+"""
+
+// to define a cahgarchter
+//cahracters are eahte ra singular letter, numebr or symble
+
+var ch : Character = "G"
+
+// booleine veribel can only be true or false value, can be used in if else statmens or logic arugumemtns that need to be directer
+
+var is_on = true // write in samll
+
+//print(strch.type(String)) errro
+
+// swift is a tupe safe labgues , amkes sure that the verables are clearly defiend
+
+// type infrence (swift figures out what is the type of data thats imlied wihtiugth you sepcifying, this helsp make it easy to not have to specify eahc time)
+
+var n = 5 // like in python swift alredy knwos that this is n is an intaer form ist value wiygtigh you secifying
+
+//type annotation( you specify exaclly to the swift concel whats the type of data you will use befroe writing it wihtought it having to discover or guss it itself ) 
+
+// Ingteger and Boolean dont need to be fully writen to be registerd by the system
+
+var n2 : Int = 4 // this is how you would sepcyf the exact value tupe befre intilisng it . is usaful for values that coul be concufes wiht each otehr like float and ouble or string and charachter
+
+var s2 : String = "string2"
+
+var d : Double = 234.5
+
+var f : Float = 3445.9
+
+var b : Bool = false 
+
+
+print(num, doub, change , s, ch, is_on, n , n2, strch, sss)
+
+-------------------------------------------------------------
+duplicte ?
+var n5 = 4 // intager
+
+var num = 454756.54257469569 
+var word = "stuff"
+// by default hte system  thinks any numebr wiht decimles are a double type unless flowa is specifed
+var doub = 3.325764564368347 // double, لها   كسور عشرية recaehs into 15 decimple points
+
+var change2 = String(num)
+
+print(change2)
+
+var change3 = Float(num)
+print(change3)// float can only accuratly store around up to 6~7 numbers as (whole and dicmile) so it round the rest tos tore memory and its used in big systmes.
+
+var change4 = Double(num)
+print(change4) // can whold up to 15 numbers(whole and decimle together)
+
+var change5 = Int(word)// dosnt work if the value isslef cant be translated toa notehr type
+print(change5) // returns nil or null
+
+var f1 = 1.123456 // float reachrs 6 numbers counting whole and dicimal points
+
+
+var m = -9
+// to cascasde or change one type of data to another
+
+var change = Int(doub)
+
+
+var s = "string" 
+
+var strch = "T" // since a string is a combinatin of cahracters the system miht assume this to be a stirgnor by default, to speciyu ti as a charcter for some futer logic use the methode below
+
+// to concatinate and add strings to each otehr 
+
+s = "additional " + s
+
+var sss = """
+msut start the words in a new line, below the علامات التنصيص
+multilevel string, can used to write long paragraphes or sentances
+
+"can have a 1 quite in here"
+
+""or a 2 quote ""
+
+\(doub) this is string interpulation
+
+"""
+
+// to define a cahgarchter
+//cahracters are eahte ra singular letter, numebr or symble
+
+var ch : Character = "G"
+
+// booleine veribel can only be true or false value, can be used in if else statmens or logic arugumemtns that need to be directer
+
+var is_on = true // write in samll
+
+//print(strch.type(String)) errro
+
+// swift is a tupe safe labgues , amkes sure that the verables are clearly defiend
+
+// type infrence (swift figures out what is the type of data thats imlied wihtiugth you sepcifying, this helsp make it easy to not have to specify eahc time)
+
+var n = 5 // like in python swift alredy knwos that this is n is an intaer form ist value wiygtigh you secifying
+
+//type annotation( you specify exaclly to the swift concel whats the type of data you will use befroe writing it wihtought it having to discover or guss it itself ) 
+
+// Ingteger and Boolean dont need to be fully writen to be registerd by the system
+
+var n2 : Int = 4 // this is how you would sepcyf the exact value tupe befre intilisng it . is usaful for values that coul be concufes wiht each otehr like float and ouble or string and charachter
+
+var s2 : String = "string2"
+
+var d : Double = 234.5
+
+var f : Float = 3445.9
+
+var b : Bool = false 
+
+
+print(num, doub, change , s, ch, is_on, n , n2, strch, sss)
+----------------------------------------------
+
+
+
+
+print("Hello, Swift!")
+
+// for values that might change in real life use var like for age adn a trafic light but if it dosnt like gender then it would be a constnet
+
+var t = 3
+
+if t > 0 {
+// will print if condition (comparison opereation) is equla true
+
+print(" positive")
+
+} else {print("dont know")}// if the "if " above ersult is aflse
+
+
+// if i have more then on condiin to chekc
+
+if t > 0 {
+// will print if condition (comparison opereation) is equla true
+
+print(" positive")
+
+} else if t<0 {
+print("negative")// if the "if " above ersult is aflse use ealse then use another if
+} else if t == 0{
+print("zero")
+
+} else {print("symbole")}// some mugth think itsn unnecary to have this part and hte t ==0 pat becaue its implied therough the cheiing of other condiins and the since the imput most liky will be risricted to bbeing a numbea any way he tlat part is nautarlly assusmed, but this extre iesle mabey sued if the progrm is taking in more hten jsut inagaters
+
+
+// if i g=have a lot of ifls and else i can use swich
+
+switch t {
+
+case 0 :
+
+print("zero") // seeems liek there dosnt need to be an indent for the cse to knwi whasts under it
+ 
+case 1:
+
+print("p")
+// each cse autimaticlly outputs its satemnt if the cndion maches , it autmaitclly "breaks" and exists the swicth which is whys there are no breaks; in this prohra for hte wciches
+case 2:
+
+print("its 2 p")
+ 
+
+
+case 3:
+
+print("ppp")
+
+
+fallthrough // if i want the switch progarm to pritnt he result ofthe rest ofthe case becaue mabey by defult at a certain case if its true the ones after it will be true as well 
+
+case 4 :
+print("is a positve")
+   
+default :
+
+print("not a number")
+
+}
+
+
+
+
+
+/*
+if condition {}        if  condition {}
+                  !=
+if condition  {}        esle {}
+
+ifs on top of each other are just a bunch of indepednded disconnected chekin of acondiiont, wich isn ideal for asutiation where cehking condins depend o ieach  other beng true r false or even wehn i want to make a full program in general 
+
+if con {        
+
+if con {}
+
+} // nested ifs for if we want all the condion to be true
+
+
+if {} else if {}
+ if we ant teo connditions to be connected to cehkng each otehr and the result could be true or false
+// if it gets too long we can sue switch 
+
+
+*/
+__________________________________________________________________________________
+
+
+//loops
+
+// if what i want to repaeat is words and not a local veraible asigned inthe for loop i ut _, then teh reange of numebrs whic says the amount f times toreapet start...end ()three dosnt and teh ragge ofnwhe r to stat form ane end it mst ly shos how many times to loop, each numebr inthe range is one loop
+
+// for _ in n...n {} loop
+// use _ if i dont want to have to use a local veribel counter verbale somwere withne the loopp afrer defininf it, like if i deifned (i) withen the loop  i woul have to use it inside th brakets somhow
+for _ in 0...3{
+
+print("Hello, Swift!")
+
+}
+
+
+// i iss a ocal veiable now holinfg te range valeus , if i will asigen it lically in for i have tonuese it inteh brakets
+for i in 0...5 {
+
+print(i)
+
+}
+
+print(" ")
+
+for v in 3...5 {
+
+print(v)
+
+}
+
+// while condiotionIsTreu<>counter {
+//print()
+// increas coutner till it set nuemrb for when we ant it to be fase
+//}
+
+var count = 7
+
+while count > 3 {
+
+print("bye")
+
+count-=1 // count = count - 1
+
+// if i want o make th condoin based on adding 
+// count +=1 and the coundition cna be while count < 10
+}
+
+
+while count < 10 {
+
+print("hey")
+
+count+=1 // have to dd somthign to chaneg teh value inthened so teh loop condiosn became false at some point and ends the loop
+}
+
+
+// repeat while loop, is liek a do whiele loop in java 
+
+// this loop makes sure to implemnt whats in it at least once even if the condiion isnt met (is false), for this rease nt eh while conditin is cheked in the end not the beging 
+
+repeat {
+
+print("stuff")
+
+count+=2
+}while count != 13
+
+
+var counts = 4
+
+repeat {
+
+print("stuff")
+
+counts+=2
+
+}while counts != 10
+
+
+// loop based off string cahractrers number
+
+var w = "hello " // teh empty sapce in hte string is also a character so it will loop based on htat too
+
+for counter in w {
+
+print (counter)
+
+print("____")
+} // her ehrt cnaracter sina word can be sued as arefrecne to count for a loop, and can be sued to print the caharcters therm selves 
+
+var counts = 4
+
+repeat {
+
+print("stuff")
+
+counts+=2
+
+}while counts != 10
+
+
+// loop based off string cahractrers number
+
+var w = "hello " // teh empty sapce in hte string is also a character so it will loop based on htat too
+
+for counter in w {
+
+print (counter)
+
+print("____")
+} // her ehrt cnaracter sina word can be sued as arefrecne to count for a loop, and can be sued to print the caharcters therm selves too
+
+// anything that is a group wht a combinaton of smaller things that the system recongises htem as seerte parts can be ittoraterd through it like a string or an arry, so the thisng in it can be sued as acounter
+
+var basketOffruits = ["Apples", "Bananas", "Oranges"]
+
+for  fruit in basketOffruits {
+
+print(fruit)
+
+}
+
+// using contuniue :
+
+/*
+contionue is to make the loop skip a specifi itoration upon meating a condition, and the loop will contion to work and contionly chek if hte condion is meet eahc itoration unlill all itoratoin are finished
+
+we cant apply contuoin on hte loop withogth it being used in an if condion in th loop, otherwhies the lopp will become pointly s and wont work
+
+for example here the contiond that we want to aplky onhte lopp is that it itarates uless the numebr it reacehs and itorates through is an even number , then i if tis is then its skitps that itoration
+
+*/
+for index in 1...10 {
+
+if index % 2 == 0 {
+// if index is even then skip this itroation and dnot print the index eagtehr
+continue
+
+}
+
+print("\(index) is odd")// the print contion isnt in the if statment beacsu if the condion isnt men tehn it wont print the odd ones whic isnt want we ewnat, i could se else but thats not neccary puting it out of the if makes it as an else here
+
+}
+
+print("___________________")
+
+// usign break:
+
+// breaks is diffrent to couniton becuse if the condion is met, instead of skipinng an itoraton and contuoneiunghte loop to the end, it complelty stos the loop form looping 
+for index in 1...10 {
+
+if index % 2 == 0 { // if numebr is even then spot the loop
+
+break // whne contion is met spot the loop completlty
+
+}
+
+print("\(index) is odd")
+
+}
+
+__________________________________________________________________________________
+
+
+
+// assiging arrys  مصفوفات
+
+
+// usng type annotation, specifyinght type fo verebale directly
+
+var array: [String] = ["one thing", "tow thing", "three things"]
+
+var arr: [Int] = []
+
+var ar:[Any] = [2, 6, "suff", "@"]
+
+//suig  type infrence 
+
+var a = [9, 7, 2]// by defuklt if i didnt want to sepcfy the type of arry  still hhev t stick to on type of value. otherwise if iwanted ti to be multi valuet (hetorgetnouse arry) then i have t use ht type annotaiton methdod 
+// index :  0        1        2
+var aa = ["there", "here", "where"]
+
+//var s = 'ddd' a tring cant be in single qoutes
+
+print (array)
+print (arr)
+print (ar)
+print (a)
+print (aa)
+
+// calling values, adding, chanign and removing them
+
+//call
+print(aa[0])
+
+print(aa[2])// for thsia rry there are no more then  till 2 index, length is the totla numebr aof value sin thenre , index isthe locarion or title of each one
+
+// add
+print(aa.append("somewhere"))
+
+print(aa)
+// cahnge or edit an exisiting value or index
+
+print(aa.insert("nowhere", at: 2))// secifybteh valeu i wnat to put int he arry , tehna t wihc index
+print(aa)
+print(aa[2] = "up" )// or i can reassing
+print(aa[2])
+
+print(aa)
+
+// removing
+
+print(aa.remove(at:3))
+
+print(aa)
+
+
+ // hwo to defien empty arrys
+var arrayA = [String]() 
+var arrayB = [Double]()
+var arrayC = [Int]()
+var arrayD = [Bool]()
+var arrayE = [Any]()
+
+
+arrayA.append("whats up")
+arrayA.append("hey there")// will be added rigth after the value alredy there
+arrayA.append("how are you doing?")
+arrayA.append("hhey")
+arrayA.append("look at you")
+
+print(arrayA)
+
+arrayC.append(1)
+arrayC.append(2)
+arrayC.append(3)
+arrayC.append(4)
+arrayC.append(1)
+
+print(arrayC)
+
+
+// to remove 
+
+//
+arrayA.removeFirst()// cant use on dictionareis becuse htey are unorderd
+arrayA.removeLast()
+print(arrayA)
+
+arrayC.remove( at: 3)// sepcif index
+print(arrayC)
+
+arrayC.removeAll()
+print(arrayC)
+
+// to knwo lngeht of arry orhe numebr fo elements inn it
+
+print(arrayA.count)// withought () next to count
+
+// to check if an array is empty
+
+print(arrayC.isEmpty)
+
+print(arrayD.isEmpty)
+
+print(arrayA.isEmpty)
+
+// to randomlly shuffle the valeus in an arry
+
+arrayA.shuffle()// cant implemnt this in teh print  sattment, probilby becaue of the ()
+print(arrayA)
+
+
+
+var mm = [[1,2],[3,4],[5,6]] // each element عنصر is an arry so when refrecning i have to do it for the 
+
+// استدعاء معرف calling the index
+print(mm[0][1]) // [رقم العنصر في البعد الأول] ثم [رقم العنصر في البعد الثاني]
+
+print("  ")
+
+
+//------------
+// dictionaries 
+// valeus can be repeated but not keys
+
+//suing type annotaion defing, teh type fo ekeys i defy have to mch the onse i use in the dictionary
+var dic: [String: Int] = ["key": 3, "do": 4,"what": 7]
+
+print(dic)
+
+// dictoionaries are unordedr, so whne it prints it might prnt in a diffrent order then the way you deifned its values
+// cant use (Any) for the keys type to elaveit open, i have to specify,  ut its okey for the value 
+var dic1 : [String : Any] = ["key1": 9 ,"fff3" : "wow" ]
+
+print(dic1)
+
+// type infrence definition and initaolisaion
+var dic2 = [2 : "two", 3 : "three"]
+
+print(dic2)
+
+// empty dictionareis
+var dictionaryOne = [String:  String]()
+var dictionaryTwo = [Int:  String]()
+
+// calling a value:
+print(dic1["key1"])// works but theres probibly a better way
+
+print(dic1["fff3"]!) // to not get the (Optional) output , put ! after calling hte key (i dont knwo why that is thought)
+
+let studentGrades = ["Ahmed": 100, "Khaled": 70, "Muhammad":  95]
+
+var grade = studentGrades["Ahmed"] // or put it in a veribel
+print(grade)// still comes out he same as witghught a vribel
+// notice: whne there is an error somwhere else inthe prigram this is also for some reason read as an errore , but when there isnt it works jsut fine
+
+
+
+// how to add and edit valeus ina dicionary:
+
+
+// adding
+dic2[4] = "four"
+dic2 [1] = "ones" // if a akey done exist whitne the dic, assign git will autimaticlly add it to the dic
+
+print(dic2)
+
+
+// updating or editing:
+
+dic2.updateValue("one" , forKey: 1)
+
+dic2.updateValue("fours", forKey : 4)
+print(dic2)
+
+dic2[2] = "TWO"
+
+print(dic2)
+
+
+
+// remving:
+
+// i speicfy the key i ewna toa remove then asigne it to (nil)
+
+dic2[4] = nil // to remve aspecific key
+
+print(dic2)
+
+
+print(dic)
+dic.removeValue(forKey: "do") // to remve aspecific key
+print(dic)
+
+var countries =  ["US":  "UnitedStates",  "IN":  "India", "UK":  "United Kingdom"]
+
+ countries.removeValue(forKey:"UK")
+ print(countries)
+ countries.removeAll()
+ print(countries)
+
+
+// to count lenght adn chek if empty
+
+print(dic.count)
+print(countries.isEmpty)
+
+
+// constent (let) dictonaryes
+// tested and cant make any of these canhnges , beaue the entyere dictionry itsef cant be changed 
+
+//let studentGrades = ["Ahmed": 100, "Khaled": 70, "Muhammad":  95]
+
+//studentGrades["talha"] = 80 // usally for a var it wold add this to it if its not there but not for a let
+
+//studentGrades.updateValue(111, forKey : "Ahmad")
+
+//studentGrades.removeValue(forKey:"Khaled")
+
+//studentGrades["Khaled"] = nil
+
+//__-------------------------------------------------
+
+
+var s = "there"
+print("hello \(s) ")
+
+// الدالة functions
+
+// void funtcion
+func myfunction() {
+
+print("this functions is a function that does whats insdie it oncall, like a voind function in java, it dons requreny any veriable to be put in it")
+
+}
+
+myfunction()
+
+// writing a function while sepcifying each verbel valeu in call
+func favoritecolor_number_food1 ( color : String, num: Int, Food : String) {
+
+print("may favorite color number and food are \(color), \(num) , \(Food)")
+
+}
+
+// you have to mentimn teh veribel you are defining
+favoritecolor_number_food1(color: "purple", num: 9, Food: "gareesh")
+
+
+// to not have to rewirte the verble during call put a (_) anywhere behind each veribles as long as its not connected directly tot he verible
+
+func favoritecolor_number_food2 ( _ color : String,_ num: Int, _ Food : String) {
+
+print("may favorite color number and food are \(color), \(num) , \(Food)")
+
+}
+
+favoritecolor_number_food2("purple" ,  9 , "gareesh")
+
+
+// to make a function that retunrs(blows out) an output for it to be stored elswehre outside of it, isted of directly beunt psuh out to the consult through a print comand
+
+func add (n1: Int, n2: Int) -> Int {
+
+let result = n1 + n2
+
+return result // isnteads of printitng the result of the function in it we push it out to be used in otehr ways making it gloabal
+
+}
+
+// now i hav tos tre the reslut insomething unlike in the non return funcions
+
+let x = add(n1: 3, n2: 3) + 2
+
+print("adition function reuslt: \(x) ")
+
+ //or
+
+print("adition function reuslt: ", add(n1: 4, n2: 6))
+ 
+print("adition function reuslt: ", add(n1: 4, n2: 6) + 5)
+
+/*
+معاملات الدوال: Parameters و Arguments
+
+Parameters مدخلات / متغيرات الدالة
+the verible fo the function
+
+Arguments قيمة متغير الدالة/ القيمة التي يضعها المستخم في مدخل الدالة لكي يتعامل بها
+teh value of the function that i put as a use ror programmer whne calling the funstion istelf
+
+*/
+
+// honerable mentions
+func tunrNumtoStr(n: Int) -> String {
+
+var ns = String(n)
+
+return ns
+}
+
+
+var ss = tunrNumtoStr(n: 4)
+print(ss," is a \(type(of: ss))")
+
+
+func greet1() -> String {
+  return "Hello, World!! 🌎"
+}
+
+print(greet1())
+

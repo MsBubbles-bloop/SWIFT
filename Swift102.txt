@@ -1,0 +1,394 @@
+// calasses are like bigger more complex functions
+// they can hold catagoreis of thingis so it has a set cahractersitics and a group of methods( calss functions) that can be rapeatedly used adn callse on diffrent verables, lieksise i can make adeuflt set of verbles and functions, but then customise the valeus that will be soreted as diffrent things   
+// recomndtion to name all calsses wiht capital etter
+// order matters superclsases must be made before their subclasses inherite
+class Animle {
+
+//veribles/ property of teh calss can be called after calss.veriable to ge the defukt valeu 
+var hairtype = "Fure"
+
+// satsatic propetrtys are a valeu shared by eveyry obejct, and it can be changed by any object and the cahneg will apear for all the objects if it was editied by them, content sharing 
+static var HasASoul = true
+
+var age = 0
+
+//defual constructer, if i the calss to intake ceritan peramiters and do somthing wiht it by defualt (the momt hte object for hte class is created) then i use ht inti function. it can also let me  edit hte vaelrbles vales of the calss internally for each object
+
+// since i sepcified a peramiter i have to ut it whne making hte object
+init (hairtype : String){// trat this like nested function, or main fucntion of hte class that takes the calss peramiters, if it donts exixt of its void then whATEVER IS INSITED IT WILL HAPPEN even if no permiters aer given beacuse its a  void function, f anything if i make a void init then i maight as well not write it becaue its in hte calss by default but tis invisible
+
+
+// its crurently default value if im made one, though i can ekeep the value empty asa  defutl
+print("self.hairtype : ", self.hairtype)
+
+
+// to sepecify the veibles of the calss itsef not outsitde ones wiht the same name , i sepcfy self 
+
+//calss verible//init verible form outsitede 
+ self.hairtype = hairtype// to cahge form default valeu to specifde in inti
+ 
+ // if i ant to put the veribkes that i dont want to be scanegd y user in the initalier :
+ 
+ // FIX 1: Use the Class name for static properties, not 'self'
+        Animle.HasASoul = true 
+        
+        // This is fine, but optional since age is already 0
+        self.age = 0 
+
+
+print("init func : ", hairtype)// dosnt have to be here, only slef intilisation has to, but jsut to show how it will be sued whne giving a valeu using init
+
+}// sicne i have hte inti fucntion i have to put every output or operation in a function 
+
+
+
+/*
+
+ thisn ofa classs like a calsifirer or chataogories, whne wanting to classify somthing we will give it a geranl discription of cahractoristics and behaviors that can be genrorlsied as an umbrella cahtogorie a over other speifc thigns that fall under that chatogory and we will mention propetires that can be later specifred whne we wnat to declare soting under that  big chatagory
+
+usful for when i haev muliple verible that i wnat o do the same thing but in a slightly diffrent way eahc time, those are the object of a calss
+
+
+ خصائص كل كلاس what every calss will have
+ 
+ Identity/ as in name
+ 
+ 
+ properteis / as in veriables or cahracteristics
+ 
+ 
+ 
+ Methods / actions or behaviors fo teh calss
+
+
+*/
+
+}
+
+// if i make an inti function wiht peraites for each obejct i have to fill those rpeamiters
+
+// withight init or wiht empty init ->Animle() correct
+// wiht init that has peramiters -> Animal(Stringvalue, ..., ...)
+
+var cat = Animle(hairtype : "fures")// cat is an object of the calss animle , meaning its vebale that now has teh abilites of the class that we sepcifred in it , wan we can twik the valeus and reustl of the functions bsed on inputs we put in it, but the main struncer of iner propetries and mthods stay teh same
+
+
+print(cat.hairtype)
+
+print(Animle.HasASoul)// any satic propety i need ot call it sueing the calss name nt the object name
+
+// Animle.HasASoul = false i cna change it otuher e and it will be the valeu for bothe cat and chicken
+
+var chicken = Animle(hairtype : "fethers")// chicekn is now an object or ineten of teh callss, so i can use anythign from the calls abilites and fucntions or subcharactersitics for teh chicekn
+
+print("before customisation",chicken.hairtype)
+
+
+chicken.hairtype = "Fethers"
+
+print("after customisation",chicken.hairtype)// calsses are datas tructers so the object chicke is like a version ofnteh main one and it will stoer any changes made to it as its own calss wthight effecting teh main, so whne i cahnge a property it will say the same  
+
+
+
+
+
+struct Thermometer {
+    // 1. Stored property (this actually holds the data in memory)
+    var celsius: Double 
+
+    // 2. Computed property (calculates or updates values on the fly) so its emoty until you call it 
+    var fahrenheit: Double {
+    
+    // gets me the valeu of the property
+        get {// iner funciotn that manges this valeu, not directy called 
+        
+            // Converts Celsius to Fahrenheit when you READ the property
+            return (celsius * 9 / 5) + 32
+        }
+        
+        //allows me to set the on deman computed verible form outside the calss
+        set(newValue) {
+            // Converts Fahrenheit back to Celsius when you WRITE to the property
+            celsius = (newValue - 32) * 5 / 9// only use self if im talking about aveible other then teh one wihten the calss itsef(if ther are duplicates taht are diffrent valeus)
+        }// whne i set a valeu for a computed propetry form outsid the class i have to stoer that valeu in somewhere otehr then the comptrued portery iste, so that could be a stored propetr or a function peramiter in the calss
+        
+    }
+    
+    // if i want to make F a read only veable, menaing its called and its valeu is reternd, the defult hidden shortcut get is here even if it didnt weite it
+    var fahrenheit2: Double {
+    
+    return (celsius * 9 / 5) + 32  // return word is optional it will work withought it 
+}
+    
+// i only have to use get and set together when i wnat to provide a read-and-write option for this verble, it can be read and editted or updated formthe aoutside of the calss , if i wont use set  dont need to sue get
+
+/*
+var test : String {
+
+return "  \(f())   "
+
+}
+
+
+func f(){
+
+print("functions in tah calss can be called form anywhere in the calss")
+}
+
+*/
+    
+}
+
+// --- How to use it ---
+
+var homeTemp = Thermometer(celsius: 20.0)
+
+// Reading the computed property (Triggers the 'get' block)
+print(homeTemp.fahrenheit) 
+// Output: 68.0
+
+// Writing to the computed property (Triggers the 'set' block)
+homeTemp.fahrenheit = 77.0 
+
+// The stored property updates automatically through the setter logic!
+print(homeTemp.celsius)    
+// Output: 25.0
+
+
+
+
+/*
+
+class Person {
+
+// inital only neede to seplad up enterng the valeus of each property instead of calling aehc paropetryt or atraubute outside do assigne it
+final var sepcies = "Human"
+
+var age = 0
+
+var gender = ""
+
+var hight  = 2
+
+var wight = 2
+
+ var IBM : Int {
+ 
+ return wight / hight
+ 
+ }
+ 
+ // final is sepccificlly to prevvent subcalsse from overidignn certain fucntions or proeprteis of supercalsses for themselves, unlike let chis is ment to avoide the value fom being reasinged evne from hte outisde onf hte calss 
+final func languge() {
+ 
+ print("hello")
+
+}
+
+func talent () {
+
+ print("Sports")
+
+}
+
+
+}
+
+
+var p = Person()
+
+print(p.IBM)
+
+p.languge()
+
+print(p.sepcies )
+
+p.sepcies = " Humans " // evne if it sfinal i can still reasigen it unlike a constent 
+
+print(p.sepcies )
+
+
+
+
+ class Parent : Person {
+ 
+ var Spouse = ""
+ 
+ var Job = "Teacher "
+ 
+ override func talent() {
+ 
+ print("Hocky")
+ 
+
+  }
+ 
+ }
+ 
+ var pp  = Parent()
+ 
+ print(pp.Job, pp.wight)
+ 
+ class Child : Person {
+ 
+ var Schoolname  = ""
+ 
+ var NumToyes = 16
+ 
+ 
+override func talent () {
+
+ print("Art")
+
+  }
+ 
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ /*
+ 
+ test private , final, fileprivate , publicand open on files whne i get them 
+ 
+ acceing form outside hte progam(that could be a collection of files) is like acceing form another app would be acceing form another folder
+ 
+ private / fileprivate vs. finalprivate / 
+ 
+ fileprivate(priveteis same as it whne applied to a class not a veibel)
+ 
+ limit WHERE you can code: They restrict access based on physical files and tabs. Inside that specific file, the class acts completely normal—you can create objects from it, subclass it, and override its methods freely. The outside files just can't see it.
+ 
+ final
+ 
+ limits WHAT you can do: It restricts access based on inheritance logic, completely ignoring where the files are located. Even if you are sitting inside the exact same file, tab, or curly braces, Swift completely bans anyone from subclassing it or overriding its contents.
+ 
+Access control levels
+
+Access control manages visibility based on curly braces ({ }), physical files/tabs, and app modules.private: Restricts visibility strictly to the local scope (enclosing class or { } block). Other classes written inside the exact same file tab cannot see it.fileprivate: Restricts visibility strictly to the physical file tab (e.g., Animal.swift). Any code or separate classes sitting inside that same file can access it, but separate files cannot.internal: The default level for all Swift code. It permits free access, visibility, and subclassing across every file and tab inside your entire project folder.public: Exposes classes or properties to external apps or frameworks that import your code package. External developers can use it but are banned from subclassing or overriding it.open: Provides the highest access level. External projects importing your code package have complete freedom to use, subclass, and override your code.Modifiers for inheritance and data safetyThese keywords work alongside access control to regulate how properties and classes can be modified or inherited.static: Shifts ownership from individual instances (self) to the Class itself. Only one shared copy exists in memory. It must be accessed using the class name (e.g., Animal.HasASoul) rather than the object name.final: Restricts inheritance logic completely, regardless of file location. A final class completely bans any child subclassing, and a final var completely bans a subclass from overriding that property.override: Used by a child subclass to safely redefine or extend the behavior of an inherited parent property or method.private(set): A specialized hybrid restriction. It allows any outside file to read the property value freely, but restricts writing/assigning capabilities strictly to the class itself.Architectural rules and behaviorsThe Hierarchy Rule: A subclass cannot have a higher visibility level than its parent class. For example, an internal subclass is legally banned from inheriting from a fileprivate parent class.Combining Protection: Keywords can be combined for maximum security. Marking a class fileprivate final class means it is invisible to outside files, and completely un-subclassable by inside files.The Getter Loophole Limitation: Using a computed property getter to expose a private variable creates a one-way read-only street. Outside code can safely look at the data but is blocked from assigning new values to it, unless the private variable holds a reference type (a Class), which allows external code to follow the reference pointer and modify the object's internal properties.
+ 
+ */
+
+
+
+
+
+
+ //this (?) allows me let the progam accep a sepcfeyd valeu or nil (i sill have to sepcify the type of value will be useing even if i use (?)) likea falling bakc on nil if ther isnt a valeu somewher along the line of code
+var a : String? = nil
+
+// low effect yellow error can be ignored program will sitill work but if the rare other erroe inthe porgram theis will aso be trancformed and riggerd as ared error
+print(a)
+
+a = "aaa"
+
+print(a)
+
+// atkes any velue 
+ var n : Any? = 23
+ 
+ print(n)
+ 
+ n = nil // i can empty the veribel aletre i neede
+
+ print(n)
+
+// usually the system wants us to double affirm what the valeu fo the optiona verble is whne printitng or using elsewhere. there aren many wsy to do this and ti will remvoe the "Optional()" output that apears for us:
+
+var b : Double? = 2.3
+
+//1-Force unwarp:
+
+print(b!)// use if you are fi you want to tell the program that for use r ther will no need to fall back on a nil value beaceus im sure that the oputupt will be and is the valeu i want
+
+// not encoreged by delvelopers , ebavcuse if the optiona v is nil (var b : Double? = nil) then teh whole program will carsh
+
+//2- nil coreceing:
+
+b = nil// reassiine fror test
+
+// only applyes if the valeu is nill 
+print(b ?? "its empty")// if i want to progarm to give a diffrent output for b if it somwhow along hte line of code became nil (intentioanlly or unintentially)
+
+///*
+//somthing you can do:
+
+b = 5.5
+var c : Any = b ?? "not here"
+
+print("Super! ",c)// a normal veible that takes teh valeu of the optional like a nroema value and wont show "Optional()" outptu 
+
+
+//*/
+
+//3- Optional binding:
+
+let g : String? = "wonderful"
+// usign a flow controle to manage hte optional function, what the program shoudl do if there is a valeu and whats it shoud do if there isnt. similer ot this print(b ?? "its empty") but inseted wiht if-else
+
+if let temp = g {
+
+print(temp)// remvoes "Optional()" outptu since temp is just a new normal local velle takign hte value of g, IF AND ONY IF  g is not nil does tmep take it 
+
+}else{
+
+print("is empty")
+
+}
+
+// 4- Optional chaining
+// any calsse chaned togethre if one useu the otehr as aporperty in them (not inheratance, but like a dat type) then i still msut explicitly make its object eahter inteh class or out of it befoer suing it elsewhere what will depend on hte changed from calsss valeu
+
+
+// the chaing works even on none inhretied classes
+ class Worker : Person {
+ 
+ var work = " the job "
+ 
+ // var family : Person? 
+ //works too but its will be nil value
+ // i can assign the obect property outsied eht ethacalss too
+ var family : Person? = Person()
+ 
+ 
+ }
+
+var w = Worker()
+
+// pritn(w.family) give me a defult built in system messatge of print(helloworld.Person)
+print(w.family?.age)// since family is type optional i have to use ? to dig ferther in it as an object 
+
+// or :
+
+// w.family = Person() then
+//print(w.family?.age)
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
