@@ -1,5 +1,3 @@
-//INCOMPLETE
-
 // enumes are like astatic list of values that to hold and have as an option to choose from (likea csutome gorup of related datatypes  ) ex: days of hte week, months of the year, seasons , comuter game states 
 //if i make custome fixed values to be abel to choose form beasue it willbe reapedtd in my code tehn i make an enoum to avvoide having to rerwite it and make syntex errores thats the maoin purposue, so its like alist i can call to  get sertain valeus (list of valeus), but if i wna tot do more i can even make acions assoicated to those valeus using fucntions in the enum, better yes use a list intheh fucntion to maek setting actins for the custom valeus easeir
 
@@ -23,6 +21,971 @@ Switch: Reads the current value of that checklist and runs specific code blocks 
 enum CompassDirection {
 //if i secfied and assocative valeu argemnt tehn when assinigna verbel tot heis case i have to fil in hte brakets of theis case, but whne using it in a swithc to print somthing i dont need to specfy teh aurenmt mentiond in the enum as swicth case, if i do hten i can write"swhic case .north(deg: let deg): "
     case north(deg: Double)// eaach assocaite vaelu can be adiffrent type inthe open enum
+    
+    case south // error = "going south" enum case cannot have a raw value if the enum does not have a raw type like  CompassDirection : String {}
+    // sue if i dnt want to have a fixed rawvalseu for the enum valeu
+    case east(degrees: Int)// assouciated valeus, allows dev aor user to assigen a value to teh holder outside the enum brakets, this allows me to not ahve to set a fixed avleu but changeble one whenver i caslls this case
+    case west
+}
+
+// 1. Assigning an enum value
+var currentHeading = CompassDirection.south
+
+//print( currentHeading)
+
+//var c2  = CompassDirection.south
+
+//print(c2)
+currentHeading =  .north(deg: 2)
+
+// 2. The Dot Shortcut (Swift knows it's a CompassDirection, so you can omit the type name)
+
+currentHeading = .east(degrees: 3)
+
+// sicne switch and enum are ment to be used together in swift whne a swithc takes an enum object as an input it alredy knows to implemnt the swithc case retlated to that enum case assigned imedatlly like they are connected 
+// 3. Using it safely with a Switch Statement
+switch currentHeading {
+case .north:// (deg: let deg) if i want to fource this case to take intehsepcfuedd peramiter in enum tehn i do this for the switch case
+    print("Heading North towards the mountains!")
+case .south:
+    print("Heading South to the beach.")
+case .east:
+    print("The sun rises here.", currentHeading)
+case .west:
+    print("Heading West into the sunset. \(220)")
+}
+// Output: Heading West into the sunset.
+// i can evene put the swich in the enums class fucn directlly ans use ""self"" to refrentce to the enum
+//can also be sued wiht "conditions"
+
+
+// raw type cvalue enum, unlike the otehr one that was by default Any and can only be saoiund a value throught a fucntoion of switch
+enum Week : String {
+
+case sun = "its sunnny!"
+
+case mon = "teh mooon is out"
+
+case tue = "Too or Two?"
+
+case wed = "Weddings today"
+
+case thur = "THirty" // i can sue associatve valeu tpes ina reaw tyep enum -. no thur(v: String)
+
+case fri = "frech fries"
+
+case sat = "I sat down" , z = "Zero day"
+
+
+func P(){
+
+
+switch self {// self as in hte enum datastructer
+
+case .sun:
+
+print("HI!!")
+
+case .mon :
+print("bbaby")
+
+case .tue :
+print("wow")
+
+case .wed:
+print("done and done")// if i wnated to i would call teh veribel holding the enum not he enum nested valeu tisef
+
+case .thur :
+print("fly")
+
+case .fri :
+print("go")
+
+case .sat :
+print("food")
+
+case .z:
+print("slyy")
+
+
+  }
+ 
+ }
+
+
+func R() -> String {
+
+switch self {
+
+case .sun : return "sunnny!"
+
+case .mon : return "mooon "
+
+case .tue : return " Two?"
+
+case .wed :  return "Weddings"
+
+case .thur : return  "TH" // i can sue associatve valeu tpes ina reaw tyep enum -. no thur(v: String)
+
+case .fri :  return "fries"
+
+case .sat :  return "sit down" ; case .z :  return  "Zzz"
+
+
+
+  
+  
+  }
+}
+
+}
+// hwo to assing 1
+var w : Week
+w = .mon
+print(w)
+w = .wed
+print(w.rawValue)
+
+// hwo to assing 2
+var w1 = Week.sun
+print(w1)
+print("R = ",w1.R())
+w1.P()// no need to put it tin a print() sicne its a void func
+
+// hwo to assing 3
+var w2 = Week.sun.rawValue
+print(w2)
+
+var zz = Week.z.rawValue
+print(zz)
+
+
+
+
+switch w {
+
+case .sun:
+
+print(1)
+
+case .mon :
+print(2)
+
+case .tue :
+print(3)
+
+case .wed:
+print(w)// if i wnated to i would call teh veribel holding the enum not he enum nested valeu tisef
+
+case .thur :
+print(5)
+
+case .fri :
+print(6)
+
+case .sat :
+print(7)
+
+case .z:
+print(8)
+
+
+}
+///________________________________________________________________
+
+
+// tuples alows me to hold multipe valeus for one verble, simler to an arry but i can name the index pointer wiht inner veibles, and its more dinamic and can be use as pickey fucnion return peramiters, usisilywe are only able to retunt one fvaleu in a retunr fucntion but hwith a tuple we can do retun more or even choos which one to retun no matter how many are sepcufoed 
+
+// accesing hte valeus :
+var t = (3, "value", [2,3])
+
+print(t.0)
+print(t.2)
+
+
+var t1 = (i : 5, s: "welcom", tt: t)
+
+print(t1.i)
+print(t1.tt)
+
+//unpacking or decompisng hte vlaeus in the tuple into a new veribles: 
+
+var (d1,d2,d3) = t // the amount of veibles i use to decom should be the same sthe num of valeus inteh tuple
+
+print(d1)// they will be simepel veibles not a tuple
+print(d2)
+print(d3)
+
+// i can do it on a tuple wiht cusitme indexse too
+var (d,dd,ddd) = t1
+
+print(d)// they will be simepel veibles not a tuple
+print(dd)
+print(ddd)
+
+//if i only want to unpack a specific value from the tuple and ignore the rest
+var (_, f ,_) = t
+print(f)
+var (_, _ ,f1) = t
+print(f1)
+
+var (f2, _ ,_) = t
+print(f2)
+
+
+
+// the main advantage of using a tuple is to monipulate the exact number and type of valeus i can return, likewsie i dont even hev to refrence all of them even if i sue hte function
+
+
+func tup() -> (n: Int, ss: String){
+
+return (2, "tttt")
+
+}
+
+
+
+
+print("first valeu in tup: ",tup().n)// ask for part of the answer not all of it
+
+let g = tup().ss
+print(g)
+
+print(tup())
+
+
+func tup2() -> (Int, String){
+
+return (5, "vvvv")
+
+}
+
+print(tup2())
+
+
+/*
+error not allows to use _ as subsitutel laabes fore the tuple lables when defining it 
+func tup3() -> (_ N: Int, _ S: String){
+
+return (5, "vvvv")
+
+}
+*/
+
+
+///_____________________________________________________________________________
+/* diffrence between structs and calss:
+
+theyry beahve teh same wayband are defined the same way but:
+
+struct: can autlimatcly genrate a oeramiter fore  its object holdinghet verbles i defined in it adn i can put valeus in it wihtougth needing an initsliser 
+
+calss: if i want to put valeus in the verbles then i eather have to have an intialisedr tahat takeds the user valeus, or i have to assing the calss vlerbles to empty valeus temporarly
+
+calss objecta are afrerence type so if i make the twe veribels osen assigend base off the otehr( var ob2 = ob1 ) then they aill be connected like a noted string to theeachother and teh class, if b1 cahnges so does b2 thery are refrecningthe same poitn (this is diffrenc then makkign two objects fromthe same calsss , this is two objects assigned to the otehr) instead of a copy htey are like connected live
+
+
+*struc cant do inheratance, lieksiew its valeu type menaining that if i make an object as acopy fo the ather var ob2 = ob1 tehn wnhe callign the veibels of eahc of them i can do o[erations onthem sepratlly and they will not effect each toerh unlike calss obejcts that are based off each toerh*
+maot importenta diffrence helsp keep data separte 
+
+
+soemthing extra for both:
+
+بالإمكان إضافة Extended لهما لإضافة المزيد من الخصائص.
+بالإمكان تطبيق Protocols عليهما.
+
+some operations to knwo later 
+
+*/
+
+
+
+struct STR {
+//  i can suse functiona dn an ntiliser in struct too
+var v1 : String
+
+var v2 : [Any]
+
+var v3 : Character 
+
+var v4 : Bool
+
+}
+
+// apearntly i can write any obs liek this
+var ob1 = STR(v1 : "stuff"
+
+ ,v2 : [2,3,"theere"]
+
+, v3 :"D"
+
+, v4 : true)
+
+
+print(ob1)
+
+
+var ob2 = ob1
+
+ob2.v3 = "F"  // i can assigne utside of the struct too
+
+print(ob2.v3)// saved to teh object
+
+print(ob1.v3)// not effected by what ahpen to ob1
+
+
+class FarmAnimals {
+        var playSound = ""
+        
+        /*
+        var v1 : StrIng // if i do this i need an intiliser for the suer to fill in the valeu of this data
+        
+        var v2 : Int = 0 // or i could put in a defult empty one and take each v and siigne it outside the calss  withougth init peramiters,  ubu if i wan tot make it easy iw oudl use inint so ic an assigne everytigng the moment i make the object
+        
+        
+        */
+    }
+    
+    
+let horse1 = FarmAnimals()// mabey the let dostn allow me to resfie horse1 to a diffrent calss????
+let horse2 = horse1//( h1----h2----classbox that saves allt her eshared valuse) theyr are connetd h1 refrecens all the valeus in h2
+
+horse1.playSound = "uhhhrrr"
+
+print(horse1.playSound)
+print(horse2.playSound)// take the esmae vael even if i dont directly ssinge h2 hte same thing becasue they are taking formthe sme box made for h1 or lookinga the seam one
+
+
+horse2.playSound = "hehehehh"
+
+
+print(horse1.playSound)// even if i change h2 it effects what h1 has as valeus this is onlys since i defence the objects based off each otehr var ob2 = ob1 this copeis htem to aehc other and keeps them connceted 
+
+
+//_____________________________________________________________________________
+// but how to intake a fucntion as a peramiter for another function :
+
+// with return functions
+                            // intake the fucntion exaclly as its peramiters type staee , even teh return type
+func f1 (i: Int, ii: Int, f: (Int,Int)-> Int) -> Int{
+
+
+// usful if i want to tek the peramites in apply it to a nessted funciotn form the main peramitre
+return f(i , ii)// use all the veibls wihthe tfucntion
+
+
+/*
+//i could:
+
+ //add some fixed valeus for hte func
+var add1 = 1
+var add2 = 2
+
+var result = f2(b: add1, ss: add2)  // i dont even need to use all the input values, i didnt use (i)
+
+return result + ii
+
+*/
+}
+
+
+func f2 (b : Int, ss: Int)-> Int
+{
+
+return b + ss
+
+}
+
+print(f1(i: 4, ii: 6, f: f2))
+
+
+
+
+//f2(b: 5, ss: 7)
+
+
+
+/*
+fora vaoid fucntions:
+correct teh code !!!
+
+func f1 (){
+print("f1")
+}
+
+
+func f2 (i : Int, f : ()-> Void){
+
+print("nest \(f())")
+print("f2", i)
+f1()// mabey just do this 
+}
+
+
+f2(i: 2,f: f1)
+
+
+one thin i can do:
+
+func f3 (){
+print("f3")
+f4()
+}
+
+func f4 (){
+print("f4")
+}
+
+f3()// output f3 f4
+
+
+*/
+
+// clousers : nameless fucntions
+
+ // clouser fumula {(normal fucntion peramiters)-> retunrvaleu in  code return} no func nor  name to the func jsut the peramiters, retunr valeu and usint (in) to serate ebtweenthe code and the last return             //accepts normal functions and clousers
+func f3 ( n : Int, m: Int, f : (Int, Int)-> Int )-> Int{// mention genreric form
+                            // to receinve functions the peramiter has to be in a raw form
+return f(n, m)
+
+}
+                     // then when calling the function mentonhte sepcifc formanf code
+                    // then wehn entering the fuction i can sepcify veirble labels
+var res = f3(n: 2,m: 6, f : {(n : Int, m: Int)-> Int in let v = n * m; return v})// let v =n*m is not neede her but jsut to show we can code more between "in ----; return" and i only nned ot use ; if i put mroe code other then return
+
+print(res)
+
+
+
+/*
+ways to summmerise clousers(when assiging during function call):
+
+base : var res = f3(n: 2,m: 6, f : {(n : Int, m: Int)-> Int in return n*m})
+
+1:
+                              
+var res = f3(n: 2,m: 6, f : {(n , m)-> Int in return n*m})
+
+// due to swifts type infrence faeture it knows from the values i put in f3 form n and m that the closure will be taking intagers ,  likewise teh n and m type wehre sepcifed in the function definition 
+
+
+
+2:
+
+var res = f3(n: 2,m: 6, f : {(n , m) in return n*m})
+// i cna remove -> Int beacsue i already have anotehr return there 
+
+3:
+
+
+
+var res = f3(n: 2,m: 6, f : {n,m in return n*m})
+
+
+
+4:
+
+var res = f3(n: 2,m: 6, f : { return $0*$1 }  ) //$0 is hte clouser index for n and $1 is for m
+
+5:
+
+//trailing closuer
+ 
+var res = f3(n: 2,m: 6 ) { return $0*$1 } // cant say {retun n*m } by them selve the sytem wont understlan with the exiplicite indexes
+
+
+6:
+
+var res = f3(n: 2,m: 6 ){ $0 * $1 }
+
+
+*/
+
+// eacapinge vs nonescaping clousere
+// needed import
+import Foundation
+
+//nonescapign(means its only imlemnt in hte funcion the mont its turn is up inhte funcion local order):
+
+
+func Nonescaping (closure: (String)-> Void) {
+            print("function start")
+                                     // .now + 5 implment 5 seconds aftre the time it was sapoused to
+            
+            // here i gave stri but outside the fucnion is where i decide what will happen whith it
+            closure("closure start")// call funcition clouser peramiter
+        
+        
+            print("function end")
+    }
+
+Nonescaping {(strii) in
+
+print(strii)// here i decide hwo to deal with hte string given in the clouser() peramiter
+
+}
+
+
+//CORRECT IT Fix IT
+
+// escaping i can delay when the local calouser can be implemnted, by saving it outside the funcion ina differn aria in memory:
+func escaping (closure: @escaping(String)-> Void) {
+            print("function start")
+                                     // .now + 5 implment 5 seconds aftre the time it was sapoused to
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5 ){
+            closure("closure start")// not showing run again on vscode lare
+        }
+            print("function end")
+    }
+
+
+
+  escaping { (value) in
+        print(value)
+    }
+
+//_____________________________________________________________________________
+
+//REVIWE MORE:
+
+// Protocalls are predefiened rules that i can use on  strucst and classes, i evn make my own, and htey can be sepcific veribes or mehtodes
+let a  = 2
+print(a)
+//a = 4 cant reassiign let
+
+// icant assine defult valeus to proticals , only mabey throigh an extention, so its oophole itnthe rules , so even when any calsss ro struct adoopt to a protoca they wont need to sue all the veblers any mroe to adapt, beacsue it butl in on a deeeper level,a nd i can give it a defult vaelu liekthis if i want too
+protocol fixedcharacteristic{
+// no assigning here alowned just defienin
+var fc : String {get}
+// emans readonly, so i can only give it a valeu in hte struc or the initliser of the struct but i can t resigen it afterwherds outside ht ecalss(can use let for  it too) i can only print
+
+//and for {get set} means i can reassine it evne ouside hte struc and initliseer , user can signe
+
+//var fc2 : String {get set}
+
+}
+
+/*
+// 1. The Blueprint (Only rules, no values allowed here!)
+protocol FixedCharacteristic {
+    var fc: String { get }
+}
+
+// 2. The Extension (The التوصيلة - we give the default value here)
+extension FixedCharacteristic {
+    var fc: String {
+        return "hello"
+    }
+}
+
+// 3. The Struct (Gets the value for FREE!)
+struct Female: FixedCharacteristic {
+    // Look! It's completely empty. 
+    // We don't even have to type 'var fc' in here! 
+}
+
+var f = Female()
+*/
+
+protocol fixedaction{
+
+func pregnant()
+
+func malething()
+
+
+}
+//when assingi a prootca veibe the cna be assineg as fixed veribel
+// this struct addapted to the protocal 
+struct Female : fixedcharacteristic{
+// sicne im adapting to aprotcal to be lagit i have to follow all the rules aka use all the veriels or methodes
+var fc : String {
+
+return "Loves pretty things"
+ }
+ 
+ // or var fc : String = "Loves pretty things"
+ 
+ //FIX LATER
+// var fc2 : String {
+
+//return "Loves pretty things 2"
+// }
+ 
+func pregnant() {
+
+print("baby inside ")
+}
+
+
+}
+
+struct Male : fixedcharacteristic , fixedaction{
+
+var fc  : String {
+ return "Loves to be outside"
+ }
+//var fc2  : String {
+// return "Loves to be outside2"
+ //}
+func malething() {
+
+print("dude things, they like swords i guss")
+}
+
+func pregnant() {
+
+print(false) // a fixed boolein value wihtougtha veribel 
+}
+
+
+}
+
+
+
+
+var f = Female()
+
+print(f.fc)
+f.pregnant()
+
+var m = Male()
+m.pregnant()
+
+// chekc can only comptuerd propetyrs be sued to assing proptcals ??
+
+// delegate is a type of protocal used to pass around task:
+         
+         // as in the person who cooks
+  protocol Cook {
+     func makingFood() 
+    // taks to be doen
+    }
+
+struct Mom: Cook { 
+     func makingFood() {
+    print("making food!")
+     } 
+   }
+    // Make a mom
+    var mom = Mom()
+
+    // Make a baby
+    struct Baby {
+    // anotehr way to thing of otional in a secario is to drces the neccaity fo the valeu tyep, the bay can live wihtought a cook, or is okay if it cant find soemuon to delgate the taks too, this it what otional is helping wiht 
+    // the one who cant do ehta task makes a delegate verble to delegate the task to sowmon eles 
+     var delegate: Cook? // delegate = someone with special skills
+     // for vaeble taht has an imprtent role and otehr things are dependent on it having a valeu , makiing it an optional (menaing otional to be filled) allsows ti to fall bak on nil and the retun that saflly avoidung aerro if it wasnt filled for wahtver reason
+     var op : String?
+     
+    }
+
+
+    // Create a baby 
+    var babe = Baby()
+    babe.delegate = mom// found sompone to delater to , filled hte dealgate veible wiht a value
+
+// since delegate is = mo object i can actiovate hte fucntion in mom bu calling it through delgate option , making it so that sicen ? is filled it can be 
+  babe.delegate?.makingFood()
+ // print(  babe.delegate?.makingFood()) of babe.delegate veble was never asssinged an offical valeu then the print for delgate would be nil and whne calling any fucntion form this obejct will be nil beasue it cant do anthyhgin wihtout a value being asined to it , if delgate wasnt optional type vverble ( var delegate: Cook), tehn wneh i called babe.delegate.makingFood() it qould return a n errro if it wans empty, ebause not making it otion means that it must be filled , in this case we are making an object of a protocal so portocals have to be folloed and filled whenver thery are adapted of sued , so i have to have something or esle error , so maiign  it an otion allows for its vaeu to be = nil jsutn incase
+
+
+// extentions توصيلة : jsut lke certian datatypes have thier own fixed faeturs and expetnions lie string wiht .split , i can make custome extentions to alllow the datatypes to impletn on itslef if i wnat when defined 
+
+// can sue on enums, protocals, calsses, strucs and simpel ddatypes
+ extension Int { 
+      var cubed: Int {  
+        return self * self * self
+      } 
+    } 
+    
+    
+    extension Double {
+    var km: Double { return self * 1_000.0 }
+    }
+
+
+   let oneKm = 25.4.km //km appears as an extention option on swift when i hover over the double value it allows me to hav teh option of automaticlly concveting using hte extenion, sile a simple sefl fcuntiosn to implemnt on any double verible 
+   
+   //mainly used on propocals, enums, calsses and structs, not to redifenin anything to to add to it like if i need tot scale eteh calss later on in teh app and dont wnat to do a hunge update to everything i can sue the extention to add on to whast already there (like google extentins)
+
+extension fixedcharacteristic {
+
+var fc : String = "the Defult value if i want and it bypasses the rules to have to use fc for every adapter"
+
+}
+//________________________________________________________________
+/*لأخطاء عديدة وبالإمكان معرفة سببها حين تكون خطأ في الكتابة Syntax Error أو حين تكون Logic Error بمعنى خطأ في منطقية سير البرنامج على سبيل المثال أن تكون لديك Method تقوم بالجمع ولكنك بالخطأ جعلتها تقوم بالضرب. ولكن هناك أخطاء قد لا تكون خطأ من المبرمج نفسه كالحالات الآنف ذكرها، بل قد تكون بسبب أمر يحدث فجأة كإنقطاع الانترنت عن الجهاز مما يتسبب في تعذر الوصول للصفحة المطلوبة على سبيل المثال، وتسمى هذه الأخطاء Recoverable Errors والتي تعني أخطاء يمكن التعامل معها بشكل أو بآخر في حال حدوثها، كأن تخبر المستخدم على سبيل المثال بأن السبب في عدم فتح الصفحة ليس مشكلة فيها بل مشكلة في الانترنت وأن البيانات سيتم تحميلها في حال قام بالاتصال بالانترنت مرة اخرى.*/
+// the swift IDE detect syntex erroe or logic error that dotn aling swift, it doens this by defulte becaus  it has things it conciders as incorect to be written for swift.
+// but if i wnat to set certina things to be conciderd an "error " sepcifcly int he app im making hen iw ould use erro handiling methodes to define earros , throw then and handle them. thens are erroe form user input or unexpectes dsituation, i wousl eb ablee to naem the erorr, pinpoint wher it happenda ne send a mesage to the user menting what to do, lie close and ope n the tab, or that the widif is out but yu data will be saved jsut wait a momne or that tehy  amde  amistakin in iteringhe passowd acocording teo teha ppp ruels so change it
+
+// ex: password seting rules are diffrent fro each websote usally , so thats a cusotm eorro we can mek
+
+// errors are rules , so i can maek cusotm aeros using enomes to name the error and protocals to define it as a type of error
+// Error is a buiult in prootcal of swift 
+// LenghtErrors si teh cutome error i will define using enums
+enum LengthErrors : Error {// Error protocal ويتميز بكونه لا يجبرنا على إضافة Properties أو Methods إضافية ولكنه يسمح لبرنامجك بالتعامل مع الأخطاء التي حددتها كما لو كانت أخطاء حقيقية.
+
+case maxlength
+
+case minlength
+}
+
+//1- make fucntion that cheks for app eoro, 2- then sue the bult in error proticals to allow the sysme to detect those too and use error handling methdes wht it 
+// thsi fucntion istefe wihtiught tahrouis password scehker so tis ment to detect an eroro of a vlaeu manully, so asddiing a cusotm eroro trigger is perfect for this type of app erorr detecter code 
+func checkPassLength(length : Int) throws -> String{
+// ??do we ptu throws int he func definition weere we hing the eroro will caure of idoe it have to be right there ??
+// if theses ifs are true then theer is an eroro in the app
+        if length < 7 {
+            print("length is less than 7")
+            throw LengthErrors.minlength // now im telingtheis sytemt that an eroor has happend so trigger the errors that we set to be conciders eroros 
+           
+        } else if length > 15 {
+            print("length is greater than 15 ")
+          throw LengthErrors.maxlength
+        }
+        return "length is valid" // when hter isnt an eroro the actual case we want
+    }
+ //i put the function that has throws in it after try (or whver was calssfied as somthign to throws )
+
+do{
+let p = try checkPassLength(length : 4)
+print(p)
+
+}catch LengthErrors.minlength {// cath the eroro s ocne they are triggerd and deal wihthtem
+
+
+print(" error:  numeber is too short")
+
+}catch LengthErrors.maxlength {
+
+print(" error:  numeber is too long")
+
+}catch{
+
+print(error)
+}
+
+
+
+
+enum SyntxErrors : Error {
+
+case wrongtype
+
+
+}
+
+
+//var t :  String 
+//t = "fjsbvs"
+// specify teh palece that the eroro cousl hapen using throws
+// <<<<wanteo d to maket he roor type the actual sstring input but i cant do theat yet, (mabey if i use otional on the  v: String? ) >>>>
+func ff (v : String) throws {//
+
+if type(of: v) != String.self{ // or 
+
+print(" v is not a string")
+throw SyntxErrors.wrongtype // eor acures hrown foem here
+
+//throw SyntxErrors.wrongtype
+}
+
+print(" what up \(v) ")
+
+
+}
+
+// if i specify a place i haev to specify a counter mesure suingn do{ try } to try out doinghte code,a nd if ther is an eror instead of carachsing he app it is handled byt being, "thrown" and tehn "caught" by catch, and catch alowws me to eather retudn a deualt eror messsaege using "error" keyword in 
+do{
+
+// whatwerver applies ry should be what explicitlly ahs hte threo init 
+try ff(v : "helo")
+
+
+}catch SyntxErrors.wrongtype{
+
+print("v must be a string type")
+//"there was an erorr"
+}
+/* optiotnal defualt
+catch {
+
+print(error)// will prent "wrongtype" by defult
+
+}
+*/
+
+
+// optional try?
+// use fi you nat to hadnle the reroro but doent care whats the eroro is, so if there is one it retunrs (nil)
+// no need for a cathc here bcause it will retunr nil her if ther is an eroro since we dont need to topitufuy the suer of the reson and they dont need to correct it, so i can mange it wusng if 
+//it detects ht eror if theri is one and returns nil, if nto it dosnt retun anything , but the normal rpohgram
+// make it an actual app like cusotme eroro detecter fcuntion, like ager ristrictions
+func  fff ( s: String) throws -> String {
+
+return "here we are \(s)"
+
+}
+
+//let p = try? fff( s: "alasca") can do but no use this way
+//print(p)
+// suign it in a if is usaful beasit hter are two options , if ona ppply the if will work otherwise it wont
+if let p = try? fff( s: "alasca") {
+print(p)
+}
+
+// dangorouse 
+// i sue try!  for a cusotm error detecter that i made, while also sayingt that check for erro and is so stop the ssyyem and notify me (using a system eroro non my eroro messages) at teh same time im sure theyr will not be any erro so jsut run
+ let p = try! fff( s: "alasca") 
+print(p)// foce unrwahp wiht no cathing and eroro handling just give to the sytme to asay tis an eroro 
+
+// dirrentce wentt en theis eror detectiona nd the norm systme eror, si that ther i\willbe a ssytem eror based onte he rules i defiend ansa an eror btu it wount show my csutome roro mesge ebasue i didnt use a chacth 
+
+//Using Defer:
+
+//a fature to make whateer is in its peramiters imlemnted last after everyting around its scope finishe fisrt 
+
+
+func sd (){
+// no matter wehre i put the differ it will be implemnt as the lst thing within ists scope
+defer {
+
+print("print last")
+}
+
+print("print fisrt")
+
+}
+
+
+sd()
+
+func sd2 (){
+// if i have multipele defs the systm will start form the last one
+defer {
+
+print("1st def")
+}
+defer {
+
+print("2nd def")
+}
+defer {
+
+print("3rd def")
+}
+
+print("print fisrt")
+
+}
+
+sd2()
+
+//________________________________________________________________
+
+// optiona valeus are suful as condiotsn for if satatmenrs or ones like it 
+// its as fi (but not litterlly) ike in if , if the valeu of hte optional is nitl, if nociders in false and dosnt do the operations, wehrase if it was filled wihta  value then if activates beaceu for if to work it has to have a valeu and untill then it jsut autmiaticlly wont work
+
+//Gaurds:
+// theya re alike suctm if statmenst s, for functions, loops and clousers 
+//they allwo us to exit the (ex: function) brackets if teh fasle conditon in gaurds peramiters are met, otehr wise it contionse wiht the fucntion for example
+
+/*
+نستخدم return للخروج من function أو closure.
+نستخدم break للخروج من loop.
+نستخدم continue لتكمل loop للدورة التالية. skip one operations inteh loop and go theot next itoration
+نستخدم throw للخروج من function مع حدوث خطأ throwing an error. so like the throw willb be incapsualted inteh gaurd
+
+*/
+
+
+//for gaurd i can sue retun even fit he fucntion isnt a retun
+func attendace(s : String?){
+   //ment to be false to activate, gausrd is expectinga false 
+guard let hasvaule = s else{// esles its psart of the whoel gaurd dont traht it seraptly like if can be from eelse
+
+print("there is no valeu in s ,so  hasvaule = sis nto true, the student isnt there")
+//sue retnr to exti the function 
+return 
+}
+
+
+print("stduent is \(hasvaule) ")
+
+}
+
+
+ attendace(s : "here")
+
+ attendace(s : nil)//tecniclly nil is avaleu that = empty
+
+
+//try on loop and clouser
+
+
+
+//Generic function:
+//is if i wnat ot make a function that can accept any type of datatype sicne theoperation can be done on mutipel data types and i dont wan to reapeat the fucntion
+//Q? cant i jsut use Any datatyep?
+
+// apearentlly teh veibles fot eh fucntion peramiters are by default let
+/* *///inout 
+ func swapTwoInts( a: inout Int, b: inout Int) -> String{
+       // if i wnat to reasine a peramiter valeu to soemthing els i need to use inout to make itn a var instead of a let
+       let temporaryA = a // works wihtout inout
+       a = b // needs inout
+       b = temporaryA // needs inout
+       // print("a=\(a)  b=\(b)")
+       
+       return "a=\(a)  b=\(b) \(a+b)"
+   }
+ 
+    var a1 = 3
+    var b1 = 5
+    // whan usign inotu i need to ptu the valuse in seorate veribels then sue  the & refrencer to connect the func peramiters to thoe outsdie veribles 
+var r = swapTwoInts( a: &a1, b: &b1 ) 
+print(r)
+
+
+// its seems  to nto work if ther are operations invoeled tahtr equreo knwoing teh type of valeu before hand toerwise  its fine
+func justprint( a : Any, b : Any){
+
+      
+      print("a=\(a)  b=\(b)")
+       
+}
+      
+ justprint( a : 2, b : 3)
+   
+// genertic fucntion accepts any datatype    
+func SwapValue<customdatype>(a: inout customdatype , b : inout customdatype){
+// inout aalos helps bypass the fact they the fucntion pereamiters are by defutl let
+let temp = a
+a = b
+b = temp
+
+  print("a=\(a)  b=\(b)")
+
+
+
+}   
+   
+   var a2 = "yes"
+    var b2 = "no"
+   //for genrecis i cant input the valeus directly, i need to refrence them 
+  SwapValue(a: &a2, b: &b2) 
+   
+   
+    var a3 = 7
+    var b3 = "gooo"
+ // SwapValue(a: &a3, b: &b3) // sicne im doing a saepeing, i cnat suwap valuse of diffrent types unless i do acasting// error 
+   
+   
+   
+   
+   
+     case north(deg: Double)// eaach assocaite vaelu can be adiffrent type inthe open enum
     
     case south // error = "going south" enum case cannot have a raw value if the enum does not have a raw type like  CompassDirection : String {}
     // sue if i dnt want to have a fixed rawvalseu for the enum valeu
